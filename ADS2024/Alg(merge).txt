@@ -1,0 +1,8 @@
+1. Input from the User limit n & m of two arrays and declare two arrays a and b
+2. Looping to the last index, Input values of a and b
+3. Declare another array c[m+n]
+4. Loop index to the land index (m+n-1);
+    Assign c[i+n] = b[i]
+    if index < n : Assign c[i] = a[i]
+5. Traverse c[m+n] and display the merged Array
+     

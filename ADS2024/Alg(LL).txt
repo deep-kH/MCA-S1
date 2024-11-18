@@ -1,0 +1,74 @@
+Step 1. Start
+Step 2. Initialize a Structure with data part and Self referential Structure pointer Next part
+Step 3. Declare structure pinter variables - new,head,temp,current ect
+Step 4. Function Create ;
+    input number of nodes n 
+    loop node till n :
+        create a new node allocating memory using malloc
+        input new->data and set new->Next as Null
+        Check if Linked List is Empty (if head is NULL)
+        set new as head and current
+        else set current->Next as new and current as new
+        end after n nodes are created
+Step 5. Function display ;
+    loop temp from head to current; display temp->data
+Step 6. FUnction Insert ;
+    1. Input weather to Insert at the head, tail or any position
+    2. create a new node assigning memory using malloc
+    3. input data value for new and set new->Next as Null
+    4. if new is to be added as head 
+        set new->Next as head
+        assign head as new
+    5. if new is to be assigned as tail
+        set new as current->next
+        assign current as new
+    6. if new is to be inserted at any position
+        input position from the user
+        loop temp from head to current till current != Null 
+            increment temp as temp->Next also decrement position
+            if position = 2 insert new as next node of temp
+                set temp->next as new->next
+                new as temp->next
+                break the Loop
+            if position > 2 the position is out of LinkedList
+step 7. Function Delete ;
+    1. Input from where deletion is needed - head, tail or by position
+    2. If head is to be deleted :
+        assign temp as head
+        assign head as head->Next
+        free temp
+    3. If Tail is to be deleted :
+        loop temp from head to current till temp->next->next = Null
+        assign current as temp
+        assign temp as temp->next
+        free temp
+    4. If a specified position is to be deleted : 
+        Input Position from the user
+        if position = 1 :
+            goto step 2
+        else :
+            loop temp from head till temp=Null and decrement position
+            if p = 2 :
+                assign prev as temp
+                assign temp as prev->Next
+                assign prev->Next as temp->next
+                break from the loop
+            else :
+                display position out of Linked List
+        free temp
+step 8. Function Search ;
+    1. Input Search : Element to be found
+    2. Initialize a variable flag to 0 to indicate if the element is found.
+    3. Traverse the linked list using temp:
+    4. Set temp to head.
+    5. Repeat the following until temp is NULL:
+    6. Check if temp->data is equal to search.
+    7. If yes: Set flag to 1.
+    Display The data is found in the LinkedList 
+    Break out of the loop.
+    If no: Assign temp as temp->Next
+    Exit the loop, check if flag is still 0
+    If yes: Display The Data is Not Found in the LinkedList
+Step 9. Input Which Function User want to execute 
+step 10. Switch and call each functions according to each user cases
+Step 11. Stop

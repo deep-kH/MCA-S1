@@ -1,0 +1,29 @@
+1. Start
+2. Read Function ;
+    input size of the array and declare the array
+    loop index from zero to size and input data for each index in the array
+2. display Function ;
+    loop from zero index to size 
+    display array[index]
+3. Insert Function ;
+    Input position and element to be inserted
+    increment size
+    loop index from size to position-1; shift array[index-1] to array[index]
+    exit loop and assign element to array[position]
+4. Delete Function ;
+    Input position to Delete
+    loop from position-1 to size,shift array[index+1] to array[index]
+    exit loop and decrement size
+5.  Search Function ;
+
+    Initialize Outer Loop from index to size-1 to iterates over the entire array 
+    Initialize Inner Loop from index(j) to size-2 to compares each element to the next one in sequence
+    if the element at array[j] > array[j + 1] swap the elements
+        Set temp = a[j]
+        Set a[j] = a[j + 1]
+        Set a[j + 1] = temp
+    End inner loop
+    End Outer Loop
+6. Input Choice for the user asking which function to be executed
+7. Switch and Call Each functions according to each case of the user
+8. Stop

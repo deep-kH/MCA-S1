@@ -1,0 +1,30 @@
+Step 1: Initialize Stack
+    Initialize a variable top to -1, indicating an empty stack.
+    Declare an array stack of maximum size max.
+Step 2: Push Operation
+    Check if the stack is not full (top != max - 1).
+    If not full, prompt the user to enter an element.
+    Read the element and store it in variable e.
+    Increment top by 1.
+    Store e in stack[top].
+Step 3: Pop Operation
+    Check if the stack is not empty (top != -1).
+    If not empty, display the top element (stack[top]) as popped.
+    Decrement top by 1.
+Step 4: Check Empty
+    Check if top equals -1.
+    If true, display "Stack is Empty".
+    Else, display "Stack is Not Empty".
+Step 5: Check Full
+    Check if top equals max - 1.
+    If true, display "Stack is Full".
+    Else, display "Stack is Not Full".
+Step 6: Display Stack
+    Print "Your Stack is : [".
+    Iterate from i = 0 to top and print each element stack[i].
+    Print "]".
+Step 7: Prompt user to enter maximum stack size (max) and declare an array as stack.
+Step 8: Display menu with options:
+Step 9. Input Which Function User want to execute 
+step 10. Switch and call each functions according to each user cases
+Step 11. Stop

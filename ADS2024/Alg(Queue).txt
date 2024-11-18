@@ -1,0 +1,27 @@
+Step 1: Initialize Queue
+    Input: Maximum size of the queue (max)
+    Initialize:
+    front = 0
+    rear = -1
+    queue = array of size max
+Step 2: Add Element (Enqueue)
+    Check if queue is full (rear == max - 1)
+    If full, display error message and exit
+    Else:
+    Prompt user to enter item (item)
+    Increment rear (rear++)
+    Store item in queue[rear]
+Step 3: Delete Element (Dequeue)
+    Check if queue is empty (rear == -1 or front > rear)
+    If empty, display error message and exit
+    Else:
+    Display deleted item (queue[front])
+    Increment front (front++)
+Step 4: Display Queue
+    Check if queue is empty (rear == -1 or front > rear)
+    If empty, display error message and exit
+    Else:
+    Display queue elements from front to rear
+Step 5: Input: User choice
+Step 6: Switch based on choice and call each functions according to each user cases
+step 7: Stop
