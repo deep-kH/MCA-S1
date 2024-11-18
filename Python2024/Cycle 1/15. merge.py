@@ -1,4 +1,4 @@
-#dictionary 1
+#Merge two dictionares
 n=input("Enter Keys for Dict1 : ").split()
 dict1={}
 for i in n:
@@ -14,5 +14,3 @@ for i in m:
 dict3=dict1
 dict3.update(dict2)
 print(dict3)
-
-    
