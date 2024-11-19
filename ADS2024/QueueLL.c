@@ -11,7 +11,7 @@ typedef struct Node
 
 // Declaring Queue Variables
 node *front = NULL, *rear = NULL, *temp, *new;
-int max, size; // Max Queue size and Present Queue Count
+int max; // Max Queue size
 
 int ISFULL()
 {
@@ -63,7 +63,6 @@ void EnQueue()
             rear->Next = new;
             rear = new;
         }
-        size++;
     }
 }
 
@@ -75,7 +74,7 @@ void DeQueue()
 
     else
     {
-        //Linkedlist Delete from top
+        // Linkedlist Delete from top
         if (front == rear)
         {
             temp = front;
@@ -88,14 +87,34 @@ void DeQueue()
             temp = front;
             front = temp->Next;
         }
-        size--;
         free(temp);
     }
 }
 
+void search()
+{
+    int search, flag = 1;
+    printf("What Do YOU Want? : ");
+    scanf("%d", &search);
+    if (ISEMPTY() == 1)
+        printf("Error 403! : Queue doesn't Exist!");
+
+    for (temp = front; temp != NULL; temp = temp->Next)
+    {
+        if (temp->data == search)
+        {
+            printf("The Element is in the Queue");
+            flag = 0;
+            break;
+        }
+    }
+    if (flag == 1)
+        printf("You Item is NOT Found in the Queue!");
+}
+
 void display()
 {
-    //Linkedlist traversal
+    // Linkedlist traversal
     if (front == NULL)
     {
         printf("\n!!There are no nodes to display!!\n");
@@ -105,7 +124,7 @@ void display()
         rear = front;
         while (rear != NULL)
         {
-            printf("%d ", rear->data);
+            printf("%d  ->  ", rear->data);
             rear = rear->Next;
         }
     }
@@ -118,11 +137,12 @@ void main()
     scanf("%d", &max);
     while (1)
     {
-        printf("\nPlease Choose an Option\n0. Exit\n1. ENqueue\n2. DEqueue\n3. Display\t");
+        printf("\nPlease Choose an Option\n0. Exit\n1. ENqueue\n2. DEqueue\n3. Display\n4. Search\t");
         scanf("%d", &choice);
 
         if (choice == 0)
         {
+            printf("!!EXITING!!");
             break;
         }
 
@@ -136,6 +156,9 @@ void main()
             break;
         case 3:
             display();
+            break;
+        case 4:
+            search();
             break;
         default:
             printf("Instruction Unclear!");
