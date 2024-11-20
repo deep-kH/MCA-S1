@@ -40,6 +40,24 @@ void display()
     }
 }
 
+int search()
+{
+    int srch, flag;
+    printf("Enter the element to be searched : ");
+    scanf("%d", &srch);
+    temp = head;
+    do
+    {
+        if (temp->data == srch)
+        {
+            flag = 1;
+            break;
+        }
+        temp = temp->Next;
+    } while (current != NULL);
+    return (flag == 1) ? 1 : 0;
+}
+
 void insert()
 {
     int c, p;
@@ -105,7 +123,6 @@ void delete()
     }
     else
     {
-        // Between Delete
         printf("Enter the position : ");
         scanf("%d", &p);
         if (p == 1)
@@ -131,25 +148,7 @@ void delete()
     }
     free(temp);
 }
-void search()
-{
-    int srch, flag;
-    printf("Enter the element to be searched : ");
-    scanf("%d", &srch);
-    temp = head;
-    do
-    {
-        if (temp->data == srch)
-        {
-            printf("The data is found in the LinkedList!");
-            flag = 1;
-            break;
-        }
-        temp = temp->Next;
-    } while (current!=NULL);
-    if (flag != 1)
-        printf("The Data is Not Found in the LinkedList!");
-}
+
 void main()
 {
     int c;
@@ -174,7 +173,7 @@ void main()
         case 6:
             break;
         case 5:
-            search();
+            (search() == 1) ? printf("Element Found!") : printf("Element NOT Found!");
             break;
         default:
             printf("Instructions Unclear");

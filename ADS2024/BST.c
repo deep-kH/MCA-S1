@@ -117,28 +117,37 @@ void post_order(node *root)
 }
 
 // Insertion
-void Insert(root)
+void Insert()
 {
     new = (node *)malloc(sizeof(node));
     new->Rchild = NULL;
     new->Lchild = NULL;
-    printf("Enter the data in the Tree Node : ");
+
+    printf("Enter your data : ");
     scanf("%d", &new->data);
 
-    if (root == NULL)
-        root=new;
-
+    if (root = NULL)
+        root = new;
     else
     {
-        if(root==NULL)
-        return;
-
-        if(new->data > root->data)
+        temp = root;
+        while (temp != NULL)
         {
-
+            prt = temp;
+            if (temp->data > new->data)
+                temp = temp->Lchild;
+            else
+                temp = temp->Rchild;
         }
+
+        if (new->data > prt->data)
+            prt->Rchild = new;
+        else
+            prt->Lchild = new;
     }
 }
+
+
 
 // Main Function
 void main()
