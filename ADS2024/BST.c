@@ -126,7 +126,7 @@ void Insert()
     printf("Enter your data : ");
     scanf("%d", &new->data);
 
-    if (root = NULL)
+    if (root == NULL)
         root = new;
     else
     {
@@ -147,7 +147,39 @@ void Insert()
     }
 }
 
+node *search()
+{
+    int s;
+    printf("Enter the Element : ");
+    scanf("%d", &s);
+    node *seach = root;
+    while (seach != NULL)
+    {
+        if (seach->data == s)
+        {
+            printf("%d is Found", seach->data);
+            return seach;
+        }
+        else if (seach->data > s)
+            seach = seach->Lchild;
+        else
+            seach = seach->Rchild;
+    }
+    return NULL;
+}
 
+node *successor()
+{
+    node *ptr, *ptr1;
+    printf("Enter the node, Predecessor to be found : ");
+    scanf("%d", &ptr->data);
+
+    ptr1 = ptr->Rchild;
+    while (ptr1 != NULL)
+        ptr1 = ptr1->Lchild;
+    return ptr;
+    printf("%d", ptr->data);
+}
 
 // Main Function
 void main()
@@ -155,7 +187,7 @@ void main()
     int choice;
     while (1)
     {
-        printf("\n0. Exit\n1. Create\n2. In Order Traversal\n3. Pre Order Traversal\n4. post Order Traversal\nChoose : \t");
+        printf("\n0. Exit\n1. Create\n2. In Order Traversal\n3. Pre Order Traversal\n4. post Order Traversal\n5. Insert\nChoose : \t");
         scanf("%d", &choice);
         if (choice == 0)
             break;
@@ -172,6 +204,15 @@ void main()
             break;
         case 4:
             post_order(root);
+            break;
+        case 5:
+            Insert();
+            break;
+        case 6:
+            temp = search();
+            if (search() == NULL)
+                printf("Confirmed 2!");
+            printf("%d confirmed\t", temp->data);
             break;
         default:
             printf("Instructions Unclear!");
