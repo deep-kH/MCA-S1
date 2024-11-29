@@ -184,10 +184,10 @@ node *successor()
 // Main Function
 void main()
 {
-    int choice;
+    int choice, trav;
     while (1)
     {
-        printf("\n0. Exit\n1. Create\n2. In Order Traversal\n3. Pre Order Traversal\n4. post Order Traversal\n5. Insert\nChoose : \t");
+        printf("\n0. Exit\n1. Create\n2. Traversals\n3. Insert\n4. Search\nChoose : \t");
         scanf("%d", &choice);
         if (choice == 0)
             break;
@@ -197,22 +197,30 @@ void main()
             Create();
             break;
         case 2:
-            in_order(root);
+            printf("Which Traversal : In(1)\t Post(2)\t Pre(3)\n");
+            scanf("%d", &trav);
+            switch (trav)
+            {
+            case 1:
+                in_order(root);
+                break;
+            case 2:
+                post_order(root);
+                break;
+            case 3:
+                pre_order(root);
+                break;
+            default:
+                break;
+            }
             break;
         case 3:
-            pre_order(root);
-            break;
-        case 4:
-            post_order(root);
-            break;
-        case 5:
             Insert();
             break;
-        case 6:
+        case 4:
             temp = search();
-            if (search() == NULL)
-                printf("Confirmed 2!");
-            printf("%d confirmed\t", temp->data);
+            if (temp == NULL)
+                printf("Ayooo! Not Found");
             break;
         default:
             printf("Instructions Unclear!");
