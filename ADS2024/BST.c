@@ -84,49 +84,35 @@ void in_order(node *root)
 
 void pre_order(node *root)
 {
-    // temp=root;
-    // Function Exit at Null  Root Value
     if (root == NULL)
         return;
 
-    // printing the Value
     printf("%d\t", root->data);
-
-    // Traversing the Left Subtree
     pre_order(root->Lchild);
-
-    // Traversing the Left Subtree
     pre_order(root->Rchild);
 }
 
 void post_order(node *root)
 {
-    // temp=root;
-    // Function Exit at Null  Root Value
     if (root == NULL)
         return;
 
-    // Traversing the Left Subtree
     post_order(root->Lchild);
-
-    // Traversing the Left Subtree
     post_order(root->Rchild);
-
-    // printing the Value
     printf("%d\t", root->data);
 }
 
 // Insertion
 void Insert()
 {
-    new = (node *)malloc(sizeof(node));
+    new = (node *)malloc(sizeof(node)); // Initializing a Node
     new->Rchild = NULL;
     new->Lchild = NULL;
 
     printf("Enter your data : ");
     scanf("%d", &new->data);
 
-    if (root == NULL)
+    if (root == NULL) // For First node of the tree
         root = new;
     else
     {
@@ -147,19 +133,13 @@ void Insert()
     }
 }
 
-node *search()
+node *search(int s)
 {
-    int s;
-    printf("Enter the Element : ");
-    scanf("%d", &s);
     node *seach = root;
     while (seach != NULL)
     {
         if (seach->data == s)
-        {
-            printf("%d is Found", seach->data);
             return seach;
-        }
         else if (seach->data > s)
             seach = seach->Lchild;
         else
@@ -168,26 +148,105 @@ node *search()
     return NULL;
 }
 
-node *successor()
+node *successor(int ele)
 {
     node *ptr, *ptr1;
-    printf("Enter the node, Predecessor to be found : ");
-    scanf("%d", &ptr->data);
+    ptr = search(ele);
 
-    ptr1 = ptr->Rchild;
-    while (ptr1 != NULL)
-        ptr1 = ptr1->Lchild;
-    return ptr;
-    printf("%d", ptr->data);
+    if (ptr->Rchild != NULL)
+    {
+        ptr1 = ptr->Rchild;
+        while (ptr1->Lchild != NULL)
+            ptr1 = ptr1->Lchild;
+    }
+    else
+        return NULL;
+    return ptr1;
+}
+
+void display()
+{
+}
+
+node *paerentof(int dat)
+{
+    node *pnt = search(dat);
+    temp = root;
+    while (temp != pnt)
+    {
+        prt = temp;
+        if (temp->data > dat)
+            temp = temp->Lchild;
+        else
+            temp = temp->Rchild;
+    }
+    if (dat == root->data)
+        return NULL;
+    return prt;
+}
+
+void Delete()
+{
+    node *dell;
+    int s;
+    printf("Enter the data to be deleted : ");
+    scanf("%d", &s);
+    dell = search(s);
+    if (paerentof(s) == NULL) // If To be deleted Node is Root Node!
+    {
+        if (dell->Rchild != NULL)
+        {
+            
+            root = successor(root->data);
+            root->Lchild = dell->Lchild;
+            root->Rchild = dell->Rchild;
+        }
+        else
+            root = root->Lchild;
+    }
+    else if (dell->Rchild == NULL && dell->Lchild == NULL) // For Deleting from leaf Node!
+    {
+        temp = paerentof(s);
+        if (temp->data > s)
+            temp->Rchild = NULL;
+        else
+            temp->Lchild = NULL;
+    }
+    else if (dell->Rchild != NULL && dell->Lchild != NULL) // For Deleting nodes with 2 Children
+    {
+        temp = dell;
+        temp = successor(dell->data);
+        prt = paerentof(temp->data);
+        prt->Lchild = NULL;
+    }
+    else // For Deleting Node with One Child
+    {
+        temp = paerentof(dell->data);
+        if (s > temp->data)
+        {
+            if (dell->Rchild != NULL)
+                temp->Rchild = dell->Rchild;
+            else
+                temp->Rchild = dell->Lchild;
+        }
+        else
+        {
+            if (dell->Rchild != NULL)
+                temp->Lchild = dell->Rchild;
+            else
+                temp->Lchild = dell->Lchild;
+        }
+    }
+    free(dell);
 }
 
 // Main Function
 void main()
 {
-    int choice, trav;
+    int choice, trav, s;
     while (1)
     {
-        printf("\n0. Exit\n1. Create\n2. Traversals\n3. Insert\n4. Search\nChoose : \t");
+        printf("\n0. Exit\n1. Create\n2. Traversals\n3. Insert\n4. Search\n5. Delete\nChoose : \t");
         scanf("%d", &choice);
         if (choice == 0)
             break;
@@ -218,9 +277,16 @@ void main()
             Insert();
             break;
         case 4:
-            temp = search();
+            printf("Enter the Element : ");
+            scanf("%d", &s);
+            temp = search(s);
             if (temp == NULL)
                 printf("Ayooo! Not Found");
+            else
+                printf("%d", temp->data);
+            break;
+        case 5:
+            Delete();
             break;
         default:
             printf("Instructions Unclear!");

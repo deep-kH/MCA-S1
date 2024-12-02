@@ -1,0 +1,19 @@
+1.Create a bank account
+with acc no:
+name,type off acc
+balance
+
+Write constructor and methods  to deposit and withdraw from the bank
+
+
+2.Create rectangle class with attributes length and breadth and find area and perimeter
+
+compare two rectangle objects with their area
+
+3.Create class rectangle with pvt attributes length and breadth ,overload < operator to compare the area of two rectangles
+
+4.Create a class time with pvt attributes hour minute and sec overload + operator to find sum of two time's
+
+5.Create a class publisher (name) derive class book from publisher with attributes title and author,derive class python from class book with attri price and number of pages
+
+Write a pgm to display the info abt a python book use base class,constructor invocation and method overriding

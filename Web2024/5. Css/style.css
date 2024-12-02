@@ -1,8 +1,8 @@
 .full {
-    width: 60%;
+    width: 80%;
     position: absolute;
     top: 2%;
-    left: 20%;
+    left: 10%;
     border: 5px groove rgba(156, 201, 88, 0.661);
 }
 
