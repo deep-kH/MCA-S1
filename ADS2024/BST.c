@@ -187,38 +187,98 @@ node *paerentof(int dat)
 
 void Delete()
 {
-    node *dell;
+    node *dell, *hi, *yt;
     int s;
     printf("Enter the data to be deleted : ");
     scanf("%d", &s);
     dell = search(s);
+
+    // if (paerentof(s) == NULL) // If To be deleted Node is Root Node!
+    // {
+    //     if (dell->Rchild != NULL)
+    //     {
+    //         temp = successor(s);
+    //         prt = paerentof(temp->data);
+    //         if (temp->Rchild != NULL)
+    //             prt->Lchild = temp->Rchild;
+    //         else
+    //             prt->Lchild = NULL;
+    //         root = temp;
+    //         root->Lchild = dell->Lchild;
+    //         if (paerentof(temp->data) == root)
+    //         {
+    //             temp->Rchild = temp->Rchild;
+    //         }
+    //         else
+    //         {
+    //             if (temp->Rchild != NULL)
+    //                 prt->Lchild = new->Rchild;
+    //             else
+    //                 prt->Lchild = NULL;
+    //             root->Rchild = dell->Rchild;
+    //         }
+    //     }
+    //     else
+    //         root = root->Lchild;
+    // }
+
     if (paerentof(s) == NULL) // If To be deleted Node is Root Node!
     {
         if (dell->Rchild != NULL)
         {
-            
-            root = successor(root->data);
+            temp = successor(root->data);
+            new = paerentof(temp->data);
+            if (paerentof(temp->data) == root)
+            {
+                temp->Rchild = temp->Rchild;
+            }
+            else
+            { // Can Be Replaced as new->Rchild = temp->Rchild
+                if (temp->Rchild != NULL)
+                    new->Rchild = temp->Rchild;
+                else
+                    new->Rchild = NULL;
+                temp->Rchild = root->Rchild;
+            }
+            root = temp;
             root->Lchild = dell->Lchild;
-            root->Rchild = dell->Rchild;
         }
         else
             root = root->Lchild;
     }
+
     else if (dell->Rchild == NULL && dell->Lchild == NULL) // For Deleting from leaf Node!
     {
         temp = paerentof(s);
-        if (temp->data > s)
-            temp->Rchild = NULL;
-        else
+        if (temp->data > dell->data)
             temp->Lchild = NULL;
+        else
+            temp->Rchild = NULL;
     }
+
     else if (dell->Rchild != NULL && dell->Lchild != NULL) // For Deleting nodes with 2 Children
     {
-        temp = dell;
-        temp = successor(dell->data);
-        prt = paerentof(temp->data);
-        prt->Lchild = NULL;
+        new = successor(s);
+        yt = paerentof(new->data);
+        hi = paerentof(s);
+        if (paerentof(new->data) == dell)
+            new->Rchild = new->Rchild;
+        else
+        {
+            if (new->Rchild != NULL)
+                yt->Lchild = new->Rchild;
+            else
+                yt->Lchild = NULL;
+            new->Rchild = dell->Rchild;
+        }
+        new->Lchild = dell->Lchild;
+
+        if (hi->data > new->data)
+            hi->Lchild = new;
+        else
+            hi->Rchild = new;
     }
+
     else // For Deleting Node with One Child
     {
         temp = paerentof(dell->data);
@@ -237,6 +297,7 @@ void Delete()
                 temp->Lchild = dell->Lchild;
         }
     }
+
     free(dell);
 }
 
@@ -283,7 +344,7 @@ void main()
             if (temp == NULL)
                 printf("Ayooo! Not Found");
             else
-                printf("%d", temp->data);
+                printf("%d is Found in your Tree!", temp->data);
             break;
         case 5:
             Delete();
