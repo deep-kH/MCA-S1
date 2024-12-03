@@ -24,7 +24,7 @@ void create()
         if (head == NULL)
         {
             head = new;
-            current = new;
+            current = new;  
         }
         else
         {
