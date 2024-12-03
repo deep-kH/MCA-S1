@@ -164,10 +164,6 @@ node *successor(int ele)
     return ptr1;
 }
 
-void display()
-{
-}
-
 node *paerentof(int dat)
 {
     node *pnt = search(dat);
@@ -192,35 +188,6 @@ void Delete()
     printf("Enter the data to be deleted : ");
     scanf("%d", &s);
     dell = search(s);
-
-    // if (paerentof(s) == NULL) // If To be deleted Node is Root Node!
-    // {
-    //     if (dell->Rchild != NULL)
-    //     {
-    //         temp = successor(s);
-    //         prt = paerentof(temp->data);
-    //         if (temp->Rchild != NULL)
-    //             prt->Lchild = temp->Rchild;
-    //         else
-    //             prt->Lchild = NULL;
-    //         root = temp;
-    //         root->Lchild = dell->Lchild;
-    //         if (paerentof(temp->data) == root)
-    //         {
-    //             temp->Rchild = temp->Rchild;
-    //         }
-    //         else
-    //         {
-    //             if (temp->Rchild != NULL)
-    //                 prt->Lchild = new->Rchild;
-    //             else
-    //                 prt->Lchild = NULL;
-    //             root->Rchild = dell->Rchild;
-    //         }
-    //     }
-    //     else
-    //         root = root->Lchild;
-    // }
 
     if (paerentof(s) == NULL) // If To be deleted Node is Root Node!
     {
