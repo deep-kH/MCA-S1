@@ -1,0 +1,2 @@
+1. create an html page to explain the uses of various predefined functions in a string and math object in javascript
+2. evaluating javascript event hanging for every click of the botton to change the backgorund color of an html page
