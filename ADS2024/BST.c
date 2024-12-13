@@ -194,12 +194,9 @@ void Delete()
         {
             temp = successor(root->data);
             new = paerentof(temp->data);
-            if (paerentof(temp->data) == root)
+            if (paerentof(temp->data) != root)
             {
-                temp->Rchild = temp->Rchild;
-            }
-            else
-            { // Can Be Replaced as new->Rchild = temp->Rchild
+                // Can Be Replaced as new->Rchild = temp->Rchild
                 if (temp->Rchild != NULL)
                     new->Rchild = temp->Rchild;
                 else
