@@ -7,8 +7,8 @@ typedef struct Node
     struct Node *next;
 } node;
 
-node *new, *temp;
-int size;
+node *V[1], *new, *temp;
+int size, vis[1];
 
 node *createNode(int data)
 {
@@ -89,9 +89,26 @@ int factorial(int n)
         return 0;
 }
 
+void dfs(int data, int search)
+{
+    if (data == search)
+    {
+        printf("Your Node is Found!");
+    }
+    int i = findIndex(V, size, data);
+    vis[i] = data;
+
+    if (vis[i] == V[i]->data)
+    {
+        data = V[i]->next->data;
+    }
+
+    dfs(data, search);
+}
+
 void main()
 {
-    int v1, v2, falg, hi;
+    int v1, v2, falg, hi, vis[size];
     printf("Enter Number of Vertex : ");
     scanf("%d", &size);
     node *V[size];

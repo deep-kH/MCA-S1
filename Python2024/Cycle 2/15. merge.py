@@ -5,7 +5,7 @@ for i in n:
     value=input(f"Enter Values for {i} : ")
     dict1[i]=value
 #dictionary 2
-m=input("Enter Keys for Dict1 : ")
+m=input("Enter Keys for Dict1 : ").split()
 dict2={}
 for i in m:
     value=input(f"Enter Values for {i} : ")

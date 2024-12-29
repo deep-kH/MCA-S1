@@ -1,13 +1,19 @@
-#Sort Dictionary ascendiing and descendiing.
-dict1={2:"hjdgwej",4:"huhwdu",1:"guyg",3:"hucgsf"}
-mylist=list(dict1.keys())
-print(mylist)
-mylist.sort()
-print(mylist)
-print("{",end="")
-for i in mylist:
-    print(i," : ",dict1[i]," , ",end="")
-print("}",end="")
-print("{",end="")
-for i in mylist[::-1]:
-    print(i," : ",dict1[i]," , ",end="")
+keys = input("Enter the keys: ").split(" ")
+dict1 = {}
+for key in keys:
+    value = input(f"Enter the value for {key}: ")
+    dict1[key] = value
+print("Original dictionary")
+print(dict1)
+
+keys.sort()
+
+dict_sort_asc = {key:dict1[key] for key in keys}
+print("Ascending Order")
+print(dict_sort_asc)
+
+keys.sort(reverse=True)
+
+dict_sort_dsc = {key:dict1[key] for key in keys}
+print("Descending Order")
+print(dict_sort_dsc)
