@@ -1,0 +1,4 @@
+1. Write a Python program to read a file line by line and store it into a list
+2. Write a python program to copy odd lines of one file to other
+3. Write a python program to read each row from a given csv file and print the content of the columns.
+5. Write a python program to write a python dictionary to a csv file. After writingthe csv file read the csv file and display the content.
