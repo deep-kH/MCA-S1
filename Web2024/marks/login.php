@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 
-<!-- <style>
+<style>
     body {
         background-color: black;
         color: black;
@@ -29,7 +29,7 @@
         color: whitesmoke;
         position: relative;
     }
-</style> -->
+</style>
 
 <body>
     <h1>Student and Admin Login</h1>
@@ -69,13 +69,14 @@
             if (!$conn) {
                 echo "Connection has Failed";
             } else {
-                $sql = "SELECT Password FROM students WHERE ID='$user'";
+                $sql = "SELECT ID,Password FROM students WHERE ID='$user'";
                 $result = mysqli_query($conn, $sql);
 
                 $row = mysqli_fetch_assoc($result);
                 if (mysqli_num_rows($result) != 0) {
                     if ($row['Password'] == $pass) {
-                        $_SESSION["id"] = $row['ID'];
+                        echo "$row[ID]";
+                        $_SESSION["qwe"] = $row['ID'];
                         header("Location: student.php");
                     } else {
                         echo "<h3 style={color:red;}>Password Inccorrect</h3>";
@@ -85,6 +86,7 @@
                 }
             }
         }
+        mysqli_close( $con );
     }
     ?>
 </body>

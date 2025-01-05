@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <style>
-    /* body {
+    body {
         background-color: black;
         color: black;
         width: 98%;
@@ -16,16 +16,16 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-    } */
+    }
 
-    /* .contain {
+    .contain {
         background-color: rgba(255, 255, 255, 0.47);
         padding-left: 60px;
         padding-right: 60px;
         padding-top: 40px;
         padding-bottom: 30px;
         border: rgba(83, 109, 255, 0.47) solid 2px;
-    } */
+    }
 
     h1 {
         color: whitesmoke;
@@ -72,7 +72,7 @@
 
     <?php
     session_start();
-    $ID = $_SESSION['id'];
+    $ID = $_SESSION['qwe'];
     if (isset($_POST["sub"])) {
         $name = $_POST["name"];
         $Rnum = $_POST["Rnum"];
@@ -87,11 +87,10 @@
             $query = "UPDATE students SET Name='$name', RollNumber='$Rnum',Email='$email',Phone='$phone',Gender='$gen' WHERE ID='$ID'";
             $result = mysqli_query($con, $query);
 
-            echo "$query";  
             if (!$result) {
                 echo "Failed Update: " . mysqli_error($con);
             } else {
-                echo "<h2>Congrats</h2>";
+                header("Location: login.php");
             }
         } else {
             echo "<h3>Connection Failed</h3>";
