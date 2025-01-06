@@ -7,7 +7,6 @@ while i<=a*b*c:
     #print(i)
     if (i%a==0) and (i%b==0) and (i%c==0):
         lcm=int(i)
-        #print(i)
         break  
     i+=1 
 print("LCM is : ",lcm)
