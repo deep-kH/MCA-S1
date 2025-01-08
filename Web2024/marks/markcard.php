@@ -64,6 +64,7 @@
             echo "<tr><td align='center'>External marks</td><td align='center'>$ext</td></tr>";
             echo "<tr><td align='center'>Total marks</td><td align='center'>$Tot</td></tr>";
             echo "<tr><td align='center'>Grade</td><td align='center'>$grad</td></tr>";
+            echo"<tr><td align='center' colspan='2'><a href='login.php'><button>Logout</button></a></td></tr>";
             echo "</table>";
         }
     }

@@ -38,7 +38,8 @@
     <h1>Welcome to Students Page</h1>
     <div class="contain">
         <a href="streg.php"><button>click Here for registration</button></a><br><br><br>
-        <a href="markcard.php"><button>Click Here for viewing marks Card</button></a>
+        <a href="markcard.php"><button>Click Here for viewing marks Card</button></a><br><br>
+        <a href="login.php"><button>Logout</button></a>
     </div>
 </body>
 

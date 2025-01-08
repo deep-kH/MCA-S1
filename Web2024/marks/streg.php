@@ -90,7 +90,7 @@
             if (!$result) {
                 echo "Failed Update: " . mysqli_error($con);
             } else {
-                header("Location: login.php");
+                header("Location: student.php");
             }
         } else {
             echo "<h3>Connection Failed</h3>";
