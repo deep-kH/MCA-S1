@@ -1,4 +1,4 @@
-// Create two arrays A and B, which contains 4 elements each.Construct a new
+// 14. Create two arrays A and B, which contains 4 elements each.Construct a new
 // arrary named C, it's first element is the product of first elements of A and B,
 // and it's second element is the product of second element of A and B and so on..
 
