@@ -2,14 +2,14 @@ size = int(input("Enter the size : "))
 matrix1 = []
 matrix2 = []
 for i in range(size):
-            matrix1.append([])
-            for j in range(size):
-                matrix1[i].append(int(input(f"Element {i},{j} : ")))
+    matrix1.append([])
+    for j in range(size):
+        matrix1[i].append(int(input(f"Element {i},{j} : ")))
                 
 for i in range(size):
-            matrix2.append([])
-            for j in range(size):
-                matrix2[i].append(int(input(f"Element {i},{j} : ")))
+    matrix2.append([])
+    for j in range(size):
+        matrix2[i].append(int(input(f"Element {i},{j} : ")))
                 
 print("\nMatrix1: ")
 for i in range(size):
