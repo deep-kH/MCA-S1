@@ -1,0 +1,10 @@
+1. College Website using HTML
+2. Math Function Using Javascript
+3. String Function using Javascript
+4. Calender Using Javascript
+5. Bg color using Javascript
+6. Online exam using Javascript
+7. Form Validation
+8. Sort Function
+9. user registration PHP
+10. Student registration
